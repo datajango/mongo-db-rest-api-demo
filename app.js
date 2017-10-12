@@ -8,6 +8,11 @@ const app = express();
 app.use(morgan('combined'))
 
 // Routes
+app.get('/', (req, res, next) => {
+    res.status(200).json({
+        message: 'Index Request'
+    });
+});
 
 // Catch 440 Errors and forward them to an error handler 
 app.use((req, res, next) => {

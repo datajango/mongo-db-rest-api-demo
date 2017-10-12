@@ -4,37 +4,37 @@ My version  of the CodeWorkr Express Mongdb REST API Series
 # Setup a MongoDB
 
 1. goto [MLab](https://mlab.com/) and setup a databases called cars.
-2. create an admin user.
+1. create an admin user.
 
-# Step 1
+## Step 1
 
 1. npm init -y
-2. yarn add express
-3. create app.js
-4. add .gitignore
-5. add .jshintrc
+1. yarn add express
+1. create app.js
+1. add .gitignore
+1. add .jshintrc
 
-# Step 2: Add .env
+## Step 2: Add .env
 
 1. npm install dotenv --save
-2. create .env
-3. I am not adding it to git repo, look at .env.sample
+1. create .env
+1. I am not adding it to git repo, look at .env.sample
 
-# Step 3: Add Logger
+## Step 3: Add Logger
 
-** Morgan ** : HTTP request logger middleware for node.js
-[Morgan](https://www.npmjs.com/package/morgan)
-[GitHub](https://github.com/expressjs/morgan)
+**Morgan** : HTTP request logger middleware for node.js
+
+* [Morgan](https://www.npmjs.com/package/morgan)
+* [GitHub](https://github.com/expressjs/morgan)
 
 1. yarn add morgan
-2. add as middleware
+1. add as middleware
 
 app.use(logger('dev));
 
-# Step 4: Add 404 Handler
+## Step 4: Add 404 Handler
 
-```
-
+```javascript
 // Catch 440 Errors and forward them to an error handler 
 app.use((req, res, next) => {
     const err = new Error('Not Found');
@@ -59,4 +59,20 @@ app.use((err, req, res, next) => {
 });
 ```
 
+## Step 5: Add first route
 
+1. Add route
+1. Launch server
+    * node app.js
+1. Launch Postman
+    1. Create a New Collection
+    ![Create a new Collection](/docs/postman-step1.PNG)
+    1. https://www.getpostman.com/collections/6b847ee739a8d9cf6c951
+    1. Send Get Request
+    ![Get Request](/docs/postman-get-index.PNG)
+
+## Step 6. Create Folders
+
+1. Create helpers folders
+1. Create controllers folders
+1. Create models folders
