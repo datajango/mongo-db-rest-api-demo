@@ -4,15 +4,14 @@ const morgan = require('morgan');
 
 const app = express();
 
+// Import routes modules
+const users = require('./routes/users');
+
 // Middleware
-app.use(morgan('combined'))
+app.use(morgan('combined'));
 
 // Routes
-app.get('/', (req, res, next) => {
-    res.status(200).json({
-        message: 'Index Request'
-    });
-});
+app.use('/users', users);
 
 // Catch 440 Errors and forward them to an error handler 
 app.use((req, res, next) => {

@@ -70,9 +70,24 @@ app.use((err, req, res, next) => {
     1. https://www.getpostman.com/collections/6b847ee739a8d9cf6c951
     1. Send Get Request
     ![Get Request](/docs/postman-get-index.PNG)
+    1. Success!
 
 ## Step 6. Create Folders
 
 1. Create helpers folders
 1. Create controllers folders
 1. Create models folders
+
+## Step 7. Install Nodemon
+
+1. yarn add nodemon
+1. add "start" command to package.json
+1. npm start
+
+## Step 8. Add Routes and Controllers
+
+1. create routes/user.js
+1. refactor app.js to use the user route module
+1. create controllers/user.js
+1. refactor routes/users.js to use the user controller module
+
