@@ -1,4 +1,6 @@
+const mongoose = require('mongoose');
 const UserModel = require('../models/user');
+const CarModel = require('../models/car');
 
 module.exports = {
     index: (req, res, next) => {
@@ -98,7 +100,8 @@ module.exports = {
             next(err);            
         }
     },        
-
+    
+    // any combination of fields
     updateUser: async (req, res, next) => {
         try {
             const { userId } = req.params;
@@ -111,6 +114,53 @@ module.exports = {
         } catch(err) {
             next(err);            
         }
-    }
+    },
+
+    getUserCars: async (req, res, next) => {
+        try {
+            const { userId } = req.params;
+            
+            const user = await UserModel.findById(userId).populate('cars');        
+            
+            console.log("users's car", user.cars);
+
+            res.status(200).json({cars:user.cars});        
+        } catch(err) {
+            next(err);            
+        }
+    },      
+    
+    createUserCars: async (req, res, next) => {
+        try {
+            // Get the userId
+            const userId = req.params.userId;
+            console.log(userId, typeof(userId));
+
+            // Create a new car
+            const newCar = new CarModel(req.body);
+            
+            console.log('userId', userId);
+            console.log('newCar', newCar);
+                        
+            const user = await UserModel.findById(userId);
+            
+            // assign user as a car's seller
+            newCar.seller = user;
+
+            // Save the car
+            await newCar.save();
+
+            // Add car to the user's selling array of cars
+            user.cars.push(newCar);
+
+            // Save the user
+            await user.save();
+                        
+            res.status(200).json({newCar});
+            //res.status(200).json({status:true});
+        } catch(err) {
+            next(err);            
+        }
+    },      
 };
 

@@ -153,3 +153,32 @@ More links
 * [make-async-await-loop-execute-in-order](https://stackoverflow.com/questions/35632531/make-async-await-loop-execute-in-order)
 
 also, updated example git with file write output
+
+## Step 16. Adding more routes
+
+1. extend routes in routes/users.js, controllers/users.js
+1. now we have a cars route
+```json
+{
+    "cars": [
+        {
+            "_id": "59e0d615fcdd4965849e4466",
+            "seller": "59e011151dc47a3a34f79440",
+            "make": "Ford",
+            "model": "Flex",
+            "year": 2017,
+            "price": 39000,
+            "__v": 0
+        },
+        {
+            "_id": "59e0d64feed04e6e80cc7d4a",
+            "seller": "59e011151dc47a3a34f79440",
+            "make": "Ford",
+            "model": "Flex",
+            "year": 2017,
+            "price": 39000,
+            "__v": 0
+        }
+    ]
+}
+```

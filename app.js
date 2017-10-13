@@ -21,7 +21,8 @@ app.use('/users', users);
 
 // Catch 440 Errors and forward them to an error handler 
 app.use((req, res, next) => {
-    const err = new Error('Not Found');
+    //console.log(req);
+    const err = new Error(`Route ${req.originalUrl} Not Found`);
     err.status = 404;
     next(err);
 });

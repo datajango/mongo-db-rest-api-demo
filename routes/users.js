@@ -14,6 +14,12 @@ router.get('/:userId', users_controller.getUser);
 router.put('/:userId', users_controller.replaceUser);
 router.patch('/:userId', users_controller.updateUser);
 
+router.get('/:userId/cars', users_controller.getUserCars);
+router.post('/:userId/cars', users_controller.createUserCars);
+
+//router.put('/:userId', users_controller.replaceUser);
+//router.patch('/:userId', users_controller.updateUser);
+
 //promise_router.route('/:userId')
 //    .get(users_controller.getUser);
 
