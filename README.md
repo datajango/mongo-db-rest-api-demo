@@ -117,13 +117,39 @@ app.use((err, req, res, next) => {
 
 ## Step 11. Added db/seed.js
 
-The seed-db function will populate the mongodb database with starting values.
+1. The seed-db function will populate the mongodb database with starting values.
 
 ## Step 12. Convert to Promise
 
-Refactored controller/uses.js to use a Promise
+1. Refactored controller/users.js to use a Promise
 
 1. Fixed depricated error in app.js
     * mongoose.Promise = global.Promise;
 
+## Step 13. Make nodemon a devdependency.
 
+1. yarn add --dev nodemon
+
+## Step 14. Convert to Async/Await
+
+1. Refactored controller/users.js to use Async/Await
+
+## Step 15. Install Express-Promise-Router
+
+1. yarn add express-promise-router
+
+## Making it Async
+
+so... async/await doesn't actually make Node.js code synchronous.
+what it does do is allow you not have to write callbacks or Promise().then().catch() functions
+so it makes your code verbose
+
+* [here is a pretty good guide](http://thecodebarbarian.com/80-20-guide-to-async-await-in-node.js.html)
+* [here is a good example of how it all works*](https://gist.github.com/license2e/04a787e9e1c0d2d0cfe23797ddaafbbc)
+
+so it will queue up all the calls in order, but some the async processing will return before others depending on how quickly it is processed
+More links
+* [using-async-await-with-a-foreach-loop](https://stackoverflow.com/questions/37576685/using-async-await-with-a-foreach-loop)
+* [make-async-await-loop-execute-in-order](https://stackoverflow.com/questions/35632531/make-async-await-loop-execute-in-order)
+
+also, updated example git with file write output
