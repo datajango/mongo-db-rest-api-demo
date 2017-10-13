@@ -1,6 +1,11 @@
 require('dotenv').config();
 const express = require('express');
+const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const mongoose = require('mongoose');
+
+mongoose.Promise = global.Promise;
+mongoose.connect(process.env.MONGOOSE_CONN);
 
 const app = express();
 
@@ -9,6 +14,7 @@ const users = require('./routes/users');
 
 // Middleware
 app.use(morgan('combined'));
+app.use(bodyParser.json());
 
 // Routes
 app.use('/users', users);

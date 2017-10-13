@@ -1,0 +1,47 @@
+[
+    {
+        "firstName": "Dick",
+        "lastName": "Tracy",
+        "email": "dick.tracy@gamil.com"
+    },
+    {
+        "firstName": "Bruce",
+        "lastName": "Wanye",
+        "email": "bruce.wanye@gamil.com"
+    },
+    {
+        "firstName": "Peter",
+        "lastName": "Parker",
+        "email": "peter.parker@gamil.com"
+    },
+    {
+        "firstName": "Hal",
+        "lastName": "Jordan",
+        "email": "hal.jordan@gamil.com"
+    },
+    {
+        "firstName": "Tony",
+        "lastName": "Starks",
+        "email": "tony.starks.@gamil.com"
+    },
+    {
+        "firstName": "Bruce",
+        "lastName": "Banner",
+        "email": "brude.banner.@gamil.com"
+    },
+    {
+        "firstName": "Britt",
+        "lastName": "Reid",
+        "email": "britt.reid.@gamil.com"
+    },
+    {
+        "firstName": "Steve",
+        "lastName": "Rogers",
+        "email": "steve.rodgers.@gamil.com"
+    },
+    {
+        "firstName": "Clark",
+        "lastName": "Kent",
+        "email": "clark.kent.@gamil.com"
+    }    
+]

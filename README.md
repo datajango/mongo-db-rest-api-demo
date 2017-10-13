@@ -91,3 +91,39 @@ app.use((err, req, res, next) => {
 1. create controllers/user.js
 1. refactor routes/users.js to use the user controller module
 
+## Step 9. Mongoose
+
+* [NPM](https://www.npmjs.com/package/mongoose)
+* [GitHub](https://github.com/Automattic/mongoose1)
+* [MongooseJS](http://mongoosejs.com/)
+
+1. yarn add mongoose
+1. We can interact with mongoose in 3 different ways:
+    1. Callbacks
+    1. Promises
+    1. Async/Await (Promises)
+
+## Step 10. Add POST Route
+
+* [NPM body-parser](https://www.npmjs.com/package/body-parser)
+
+1. yarn npm body-parser
+1. add body-parser as Middleware
+    * app.use(bodyParser.json());
+1. add users.post route
+1. add users.create_usrer controller
+1. In Postman, make sure to add Headers
+    * Content-Type:application/json
+
+## Step 11. Added db/seed.js
+
+The seed-db function will populate the mongodb database with starting values.
+
+## Step 12. Convert to Promise
+
+Refactored controller/uses.js to use a Promise
+
+1. Fixed depricated error in app.js
+    * mongoose.Promise = global.Promise;
+
+
