@@ -182,3 +182,26 @@ also, updated example git with file write output
     ]
 }
 ```
+
+## Step 17. Validation
+
+* [express validator](https://www.npmjs.com/package/express-validator)
+* [joi](https://www.npmjs.com/package/joi)
+    * Object schema description language and validator for JavaScript objects.
+    * npm install --save joi
+* [validator](https://www.npmjs.com/package/validator)
+* [node validator](https://www.npmjs.com/package/node-validator)
+* [better validator](https://www.npmjs.com/package/better-validator)
+    * be simple to use
+    * support a number of usage patterns including a fluent interface
+    * support re-use of validator parts
+    * support deep object and array validation
+    * be able to customise the output structure
+    * be able to customise failure messages
+    * support i18n
+    * use the well known validator library for string validation
+    * be easily used with both express.js, koa.js and koa@next
+    * written in and works with typescript (>= v2.0.0, see Section on Breaking Changes below)
+
+1. Go with Joi
+1. npm install --save joi

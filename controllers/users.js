@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const UserModel = require('../models/user');
 const CarModel = require('../models/car');
 
+
 module.exports = {
     index: (req, res, next) => {
         UserModel.find({}, (err, users) => {            
@@ -75,12 +76,14 @@ module.exports = {
     },         
     
     getUser: async (req, res, next) => {
+        //const result = Joi.validate(req.params, idSchema);
+        //console.log('Joi', result);
+        console.log('getUser');
         try {
-            const { userId } = req.params;
-            
-            const user = await UserModel.findById({userId});        
-            
+            const { userId } = req.value.params;
+            const user = await UserModel.findById(userId);
             res.status(200).json({user});        
+            //res.status(200).json({status:true});
         } catch(err) {
             next(err);            
         }
