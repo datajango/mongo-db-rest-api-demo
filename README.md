@@ -136,6 +136,8 @@ app.use((err, req, res, next) => {
 
 ## Step 15. Install Express-Promise-Router
 
+* [Espress Promise Router](https://www.npmjs.com/package/express-promise-router)
+
 1. yarn add express-promise-router
 
 ## Making it Async
@@ -205,3 +207,28 @@ also, updated example git with file write output
 
 1. Go with Joi
 1. npm install --save joi
+1. added helpers/route-helper.js
+
+## Hapi and Joi
+
+In googling Joi I found that [Hapi.js](https://hapijs.com/) uses Joi.  Now the question becomes, when do I jump ship on rolling my own Node/Express server and
+use a framework such as Hapi?
+
+* [Hapi Git repo](https://github.com/hapijs/hapi)
+* [Getting Started with Hapi.JS](https://scotch.io/tutorials/getting-started-with-hapi-js)
+
+## Step 18. Add Joi Body Validation
+
+1. add validateBody top helpers/route-helper.js
+1. connect to the users post '/' route
+
+## Step 19. Add More Schemas
+
+1. Added a validation array
+1. Added optional Patch Schema
+
+## Step 20. Add Car routes
+
+1. Added Car route
+1. Added Car controller
+

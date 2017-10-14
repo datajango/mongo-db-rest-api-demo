@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const UserModel = require('../models/user');
 const CarModel = require('../models/car');
 
-
 module.exports = {
+    /*
     index: (req, res, next) => {
         UserModel.find({}, (err, users) => {            
             if (err) 
@@ -28,7 +28,7 @@ module.exports = {
                 next(err);
             });
     },
-
+    */
     index_async: async (req, res, next) => {
         try {
             const users = await UserModel.find({});
@@ -38,7 +38,7 @@ module.exports = {
             next(err);
         }        
     },
-
+    /*
     create_user: (req, res, next) => {        
         console.log('req.body contents', req.body);
         const new_user = new UserModel(req.body);
@@ -64,10 +64,12 @@ module.exports = {
                 next(err);
             });
     },       
-
+    */
     create_user_async: async (req, res, next) => {
         try {
-            const new_user = new UserModel(req.body);        
+            console.log('create_user_async');
+            console.log('req.value:', req.value);
+            const new_user = new UserModel(req.value.body);        
             const user = await new_user.save();
             res.status(201).json(user);    
         } catch(err) {
@@ -87,13 +89,12 @@ module.exports = {
         } catch(err) {
             next(err);            
         }
-    },        
-    
+    },            
     // enforce that every field is provided
     replaceUser: async (req, res, next) => {
         try {
-            const { userId } = req.params;
-            const newUser = req.body;            
+            const { userId } = req.value.params;
+            const newUser = req.value.body;            
             console.log('userId is',userId);            
             console.log('newUser is', newUser);
             const result = await UserModel.findByIdAndUpdate(userId, newUser);
@@ -107,13 +108,13 @@ module.exports = {
     // any combination of fields
     updateUser: async (req, res, next) => {
         try {
-            const { userId } = req.params;
-            const newUser = req.body;            
-            console.log('userId is',userId);            
-            console.log('newUser is', newUser);
+            const { userId } = req.value.params;
+            const newUser = req.value.body;            
+            console.log('updateUser userId is',userId);            
+            console.log('updateUser newUser is', newUser);
             const result = await UserModel.findByIdAndUpdate(userId, newUser);
-            console.log('result is', result);
-            res.status(200).json({success:true});         
+            console.log('updateUser result is', result);
+            res.status(200).json(result);         
         } catch(err) {
             next(err);            
         }
@@ -121,12 +122,9 @@ module.exports = {
 
     getUserCars: async (req, res, next) => {
         try {
-            const { userId } = req.params;
-            
-            const user = await UserModel.findById(userId).populate('cars');        
-            
+            const { userId } = req.value.params;            
+            const user = await UserModel.findById(userId).populate('cars');                    
             console.log("users's car", user.cars);
-
             res.status(200).json({cars:user.cars});        
         } catch(err) {
             next(err);            
@@ -136,30 +134,26 @@ module.exports = {
     createUserCars: async (req, res, next) => {
         try {
             // Get the userId
-            const userId = req.params.userId;
+            const { userId } = req.value.params;
             console.log(userId, typeof(userId));
-
             // Create a new car
-            const newCar = new CarModel(req.body);
-            
+            const newCar = new CarModel(req.value.body);            
             console.log('userId', userId);
-            console.log('newCar', newCar);
-                        
-            const user = await UserModel.findById(userId);
+            console.log('newCar', newCar);                        
+            const user = await UserModel.findById(userId);            
+            
+            console.log(user);
             
             // assign user as a car's seller
             newCar.seller = user;
-
             // Save the car
             await newCar.save();
-
             // Add car to the user's selling array of cars
             user.cars.push(newCar);
-
             // Save the user
-            await user.save();
-                        
+            await user.save();                        
             res.status(200).json({newCar});
+
             //res.status(200).json({status:true});
         } catch(err) {
             next(err);            
