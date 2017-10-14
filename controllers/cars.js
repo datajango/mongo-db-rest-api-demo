@@ -41,5 +41,28 @@ module.exports = {
         const newCar = req.value.body;            
         const result = await UserModel.findByIdAndUpdate(carId, newCar);
         res.status(200).json(result);         
-    }
+    }, 
+    deleteCar: async (req, res, next) => {    
+        const { carId } = req.value.params;
+        // get a car
+        const car = await CarModel.findById(carId);
+        if (!car) {
+            res.status(404).json({error: 'Car does not exist'});
+        }
+        const sellerId = car.seller;
+
+        // get a seller        
+        const seller = await UserModel.findById(sellerId);
+
+        // remove the car
+        await car.remove();
+
+        //remove the car from the seller's selling list
+        seller.cars.pull(car);
+
+        await seller.save();
+
+        res.status(200).json({success:true});
+    },
+    
 };

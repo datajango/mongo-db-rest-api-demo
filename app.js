@@ -3,11 +3,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const helmet = require('helmet');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGOOSE_CONN);
 
 const app = express();
+
+app.use(helmet())
 
 // Import routes modules
 const users = require('./routes/users');
