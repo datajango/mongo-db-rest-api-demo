@@ -1,5 +1,5 @@
 # mongo-db-rest-api-demo
-My version  of the CodeWorkr Express Mongdb REST API Series
+My version of the [CodeWorkr Express MongoDB REST API Series](https://www.youtube.com/playlist?list=PLSpJkDDmpFZ5rZ5-Aur9WRNsBDSUS-0B9).
 
 # Setup a MongoDB
 
